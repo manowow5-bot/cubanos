@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CUBANO HEX | Store</title>
+  <meta name="description" content="CUBANO HEX - Portal de servicios digitales y gaming premium" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Exo+2:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="app-shell" id="appShell">
+    <header class="site-header">
+      <div class="brand-panel">
+        <a class="brand" href="#inicio">CUBANO <span>HEX</span></a>
+        <button class="admin-btn" id="openAdminPanel" type="button" hidden>Admin Panel</button>
+      </div>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mainMenu" aria-hidden="false">
+        Menu
+      </button>
+      <div class="menu-panel" id="mainMenu" aria-hidden="false">
+        <nav class="main-nav">
+          <a class="menu-link" href="#productos">Productos</a>
+          <button class="menu-link menu-link-btn" id="openHistoryModal" type="button">Mi historial</button>
+          <a class="menu-link" href="#ventajas">Por que elegirnos</a>
+        </nav>
+        <a class="support-btn menu-link" href="https://wa.me/17867050125" target="_blank" rel="noopener noreferrer">Soporte</a>
+      </div>
+      <div class="auth-actions" id="authActions">
+        <button class="auth-btn" id="openLogin" type="button">Iniciar sesion</button>
+        <button class="auth-btn auth-btn-alt" id="openRegister" type="button">Crear cuenta</button>
+      </div>
+      <div class="balance-chip" id="balanceChip" hidden>
+        <small>Saldo actual</small>
+        <strong id="balanceAmount">$0.00</strong>
+      </div>
+      <div class="user-chip" id="userChip" hidden>
+        <span id="userName"></span>
+        <button id="logoutBtn" type="button">Salir</button>
+      </div>
+    </header>
+
+    <main>
+    <section id="inicio" class="hero">
+      <p class="kicker">Digital Store para gamers y creadores</p>
+      <h1>CUBANO HEX</h1>
+      <p class="subtitle">Tu portal para servicios digitales con entrega rapida, panel claro y soporte continuo.</p>
+      <div class="hero-cta">
+        <a href="#productos" class="btn btn-primary">Ver productos</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>5K+</strong><span>Clientes activos</span></div>
+        <div><strong>10K+</strong><span>Ordenes completadas</span></div>
+        <div><strong>4.9</strong><span>Rating promedio</span></div>
+      </div>
+    </section>
+
+    <section id="productos" class="section">
+      <div class="section-head">
+        <h2>Nuestros productos</h2>
+        <p>Catalogo principal de servicios destacados</p>
+      </div>
+      <div class="product-filter">
+        <label for="productCategory">Selecciona una categoria</label>
+        <select id="productCategory" name="productCategory">
+          <option value="all">Todos los paneles</option>
+          <option value="android">Paneles para Android</option>
+          <option value="ios">Paneles para IOS</option>
+          <option value="pc">Paneles para PC</option>
+        </select>
+      </div>
+      <div id="productGrid" class="product-grid"></div>
+    </section>
+
+    <section id="ventajas" class="section">
+      <div class="section-head">
+        <h2>Por que elegirnos</h2>
+        <p>Ventajas para comprar con confianza</p>
+      </div>
+      <div class="feature-grid">
+        <article><h3>Entrega instantanea</h3><p>Flujo optimizado para activacion rapida.</p></article>
+        <article><h3>Pagos seguros</h3><p>Procesos protegidos y verificados.</p></article>
+        <article><h3>Soporte 24/7</h3><p>Atencion continua para resolver dudas.</p></article>
+        <article><h3>Precios competitivos</h3><p>Opciones flexibles segun presupuesto.</p></article>
+        <article><h3>Calidad validada</h3><p>Servicios revisados antes de publicarse.</p></article>
+        <article><h3>Comunidad activa</h3><p>Feedback constante y mejoras semanales.</p></article>
+      </div>
+    </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>CUBANO HEX Store - Todos los derechos reservados.</p>
+    </footer>
+  </div>
+
+  <div class="auth-modal" id="authModal">
+    <div class="guest-shell">
+      <section class="guest-showcase" aria-label="Resumen de marca">
+        <div class="showcase-inner">
+          <div class="showcase-badge">CH</div>
+          <h1>CUBANO HEX</h1>
+          <p class="showcase-copy">Comunidad de socios de CubanYT lideres en reventa de hacks y servicios digitales.</p>
+
+          <div class="showcase-list">
+            <article class="showcase-item">
+              <strong>Productos seguros para revender</strong>
+              <span>Catalogo privado con acceso rapido despues del login.</span>
+            </article>
+            <article class="showcase-item">
+              <strong>Precios hasta -70% del valor original</strong>
+              <span>Ofertas pensadas para comunidad, gaming y automatizacion.</span>
+            </article>
+            <article class="showcase-item">
+              <strong>Mas de 5 mil socios activos</strong>
+              <span>Soporte continuo y ordenes verificadas cada semana.</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="auth-panel">
+        <div class="auth-card" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+          <h2 id="authTitle">Iniciar Sesion</h2>
+          <p id="authText">Accede a tu cuenta para continuar.</p>
+
+          <div class="auth-shortcut">
+            <span>Acceso rapido</span>
+            <button class="shortcut-btn" id="openRegisterHero" type="button">Crear cuenta nueva</button>
+          </div>
+
+          <div class="auth-divider">
+            <span>Ingresa tu correo o usuario</span>
+          </div>
+
+          <form id="loginForm" class="auth-form" novalidate>
+            <label for="loginIdentity">Correo Gmail o usuario</label>
+            <input id="loginIdentity" name="loginIdentity" type="text" placeholder="tuusuario@gmail.com o tuusuario" autocomplete="username" required />
+
+            <label for="loginPassword">Contrasena</label>
+            <input id="loginPassword" name="loginPassword" type="password" placeholder="Tu contrasena" required />
+
+            <p class="form-error" id="loginError" aria-live="polite"></p>
+            <div class="helper-row">
+              <button type="button" class="text-link" id="openRecover">Olvide mi contrasena</button>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary auth-submit">Iniciar sesion</button>
+            </div>
+          </form>
+
+          <form id="registerForm" class="auth-form" novalidate hidden>
+            <label for="registerUser">Crear usuario</label>
+            <input id="registerUser" name="registerUser" type="text" placeholder="Tu usuario" required />
+
+            <label for="registerPhone">Numero de telefono</label>
+            <input id="registerPhone" name="registerPhone" type="tel" placeholder="+1 786 705 0125" required />
+
+            <label for="registerEmail">Correo Gmail</label>
+            <input id="registerEmail" name="registerEmail" type="email" placeholder="tuusuario@gmail.com" required />
+
+            <label for="registerPassword">Crear contrasena</label>
+            <input id="registerPassword" name="registerPassword" type="password" placeholder="Minimo 8 digitos" minlength="8" required />
+
+            <p class="form-error" id="registerError" aria-live="polite"></p>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary auth-submit">Crear cuenta</button>
+              <button type="button" class="btn btn-ghost auth-secondary" id="backToLoginFromRegister">Volver</button>
+            </div>
+          </form>
+
+          <form id="recoverForm" class="auth-form" novalidate hidden>
+            <label for="recoverEmail">Correo Gmail</label>
+            <input id="recoverEmail" name="recoverEmail" type="email" placeholder="tuusuario@gmail.com" required />
+
+            <p class="form-error" id="recoverError" aria-live="polite"></p>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary auth-submit">Enviar codigo</button>
+              <button type="button" class="btn btn-ghost auth-secondary" id="backToLoginFromRecover">Volver</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="admin-modal" id="adminModal" hidden>
+    <div class="admin-dialog" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+      <div class="admin-header">
+        <div>
+          <p class="admin-kicker">Control interno</p>
+          <h2 id="adminTitle">Admin Panel</h2>
+        </div>
+        <button class="admin-close" id="closeAdminPanel" type="button">Cerrar</button>
+      </div>
+
+      <div class="admin-stats" id="adminStats"></div>
+
+      <div class="admin-layout">
+        <section class="admin-section">
+          <div class="admin-section-head">
+            <h3>Usuarios</h3>
+            <p>Recarga saldo y revisa datos de cada cuenta.</p>
+          </div>
+          <div class="admin-users" id="adminUsers"></div>
+        </section>
+
+        <section class="admin-section">
+          <div class="admin-section-head">
+            <h3>Movimientos</h3>
+            <p>Compras y recargas guardadas en este dispositivo.</p>
+          </div>
+          <div class="admin-movements" id="adminMovements"></div>
+        </section>
+
+        <section class="admin-section admin-keys-section">
+          <div class="admin-section-head">
+            <h3>Agregador de keys</h3>
+            <p>Solo el admin puede cargar, copiar y borrar keys.</p>
+          </div>
+
+          <form class="admin-key-form" id="adminKeyForm" novalidate>
+            <label for="adminKeyProduct">Producto</label>
+            <select id="adminKeyProduct" name="adminKeyProduct" required></select>
+
+            <label for="adminKeyValue">Key</label>
+            <input id="adminKeyValue" name="adminKeyValue" type="text" placeholder="Pega aqui la key" required />
+
+            <button type="submit" class="admin-key-add-btn">Agregar key</button>
+            <p class="admin-key-feedback" id="adminKeyFeedback" aria-live="polite"></p>
+          </form>
+
+          <div class="admin-keys" id="adminKeys"></div>
+        </section>
+
+        <section class="admin-section admin-visibility-section">
+          <div class="admin-section-head">
+            <h3>Visibilidad de productos</h3>
+            <p>Oculta o muestra productos en la tienda para los clientes.</p>
+          </div>
+          <div class="admin-products-visibility" id="adminProductsVisibility"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <div class="key-modal" id="keyModal" hidden>
+    <div class="key-dialog" role="dialog" aria-modal="true" aria-labelledby="keyModalTitle">
+      <p class="key-kicker">Entrega automatica</p>
+      <h2 id="keyModalTitle">Tu key esta lista</h2>
+      <p class="key-product" id="keyModalProduct"></p>
+      <div class="key-value-box" id="keyModalValue"></div>
+      <div class="key-actions">
+        <button class="key-copy-btn" id="copyDeliveredKeyBtn" type="button">Copiar / pegar key</button>
+        <button class="key-close-btn" id="closeKeyModalBtn" type="button">Cerrar</button>
+      </div>
+      <p class="key-feedback" id="keyModalFeedback" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <div class="history-modal" id="historyModal" hidden>
+    <div class="history-dialog" role="dialog" aria-modal="true" aria-labelledby="historyTitle">
+      <div class="history-header">
+        <div>
+          <p class="history-kicker">Cuenta</p>
+          <h2 id="historyTitle">Mi historial</h2>
+        </div>
+        <button class="history-close" id="closeHistoryModal" type="button">Cerrar</button>
+      </div>
+      <p class="history-subtitle">Compras, recargas y movimientos de tu cuenta.</p>
+      <div class="user-history-stats" id="userHistoryStats"></div>
+      <div class="user-history-list" id="userHistoryList"></div>
+    </div>
+  </div>
+
+  <a
+    class="discord-float"
+    href="https://discord.gg/FVpQahzur"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Unirse al Discord"
+    title="Unirse al Discord"
+  >
+    <svg viewBox="0 0 127.14 96.36" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.11 0A72.37 72.37 0 0 0 45.64 0 105.89 105.89 0 0 0 19.39 8.09C2.79 32.65-1.71 56.6.53 80.21A105.73 105.73 0 0 0 32.71 96a77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.18c.92-.67 1.81-1.38 2.67-2.11 20.97 9.58 43.68 9.58 64.4 0 .87.73 1.76 1.44 2.67 2.11A68.68 68.68 0 0 1 87.64 85a77 77 0 0 0 6.89 11.1A105.25 105.25 0 0 0 126.7 80.21c2.63-27.37-4.48-51.1-19-72.14ZM42.45 65.69C36.18 65.69 31 59.99 31 53s5-12.74 11.41-12.74S53.84 46 53.89 53c0 6.99-5.17 12.69-11.44 12.69Zm42.24 0C78.41 65.69 73.24 59.99 73.24 53s5-12.74 11.45-12.74S96.08 46 96.08 53s-5.14 12.69-11.39 12.69Z"/>
+    </svg>
+  </a>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
